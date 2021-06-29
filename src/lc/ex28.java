@@ -13,13 +13,8 @@ public class ex28 {
 	
 
     public static int strStr(String haystack, String needle) {
-    	if(needle==null||needle.length()==0) return 0;
-    	else if(haystack.length()==1&&needle.length()==1)
-    		if(haystack.charAt(0)==needle.charAt(0))
-    			return 0;
+    	if(needle.length()==0) return 0;
     	int len=needle.length();
-    	boolean flag=false;
-    	int idx=0;
     	String tmp="";
     	for (int i = 0; i <= haystack.length()-len; i++) {
     		tmp="";
@@ -28,16 +23,9 @@ public class ex28 {
 			}
     		//System.err.println("tmp:"+tmp);
     		if(tmp.equals(needle)) {
-    			flag=true;
-				idx=i;
-				break;
-			} else {
-				flag=false;
-			}
+    			return i;
+			} 
 		}
-    	if(flag)
-    		return idx;
-    	else
-    		return -1;
+		return -1;
 	}
 }
