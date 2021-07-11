@@ -17,7 +17,7 @@ public class ex118 {
 //		result=twoSum(nums,target);
 //		for(int i=0;i<T;i++) {
 //			System.out.println(result[i]);
-//		}
+//		}            
 			
 	}
 	public List<Integer> getRow(int k) {
