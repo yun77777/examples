@@ -1,39 +1,43 @@
 package lc;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.io.IOException;
 
 public class ex121 {
-	public static void main(String[] args) {
-//		Scanner sc=new Scanner(System.in);
-//		int T=sc.nextInt();
-//		int[] nums=new int[T];
-//		int[] result=new int[2];
-//		int target=0;
-//		for(int i=0;i<T;i++) {
-//			nums[i]=sc.nextInt();
-//		}
-//		target=sc.nextInt();
-//		result=twoSum(nums,target);
-//		for(int i=0;i<T;i++) {
-//			System.out.println(result[i]);
-//		}
+	public static void main(String[] args) throws IOException {
+		int[] prices= {7,1,5,3,6,4};
+		System.out.println(maxProfit(prices));
 			
 	}
-	public int maxProfit(int[] prices) {
+	public static int maxProfit(int[] prices) {
 		 if (prices.length == 0) {
 			 return 0 ;
-		 }		
+		 }
+		 
 		 int max = 0 ;
-		 int sofarMin = prices[0] ;
+		 int minSofar = prices[0] ;
 	     for (int i = 0 ; i < prices.length ; ++i) {
-	    	 if (prices[i] > sofarMin) {
-	    		 max = Math.max(max, prices[i] - sofarMin) ;
-	    	 } else{
-	    		sofarMin = prices[i];  
-	    	 }
+	    	 if(prices[i]<minSofar)
+	    		 minSofar=prices[i];
+	    	 if(prices[i]-minSofar>max)
+	    		 max=prices[i]-minSofar;
+	    	 //max=Math.max(max,prices[i]-minSofar);
 	     }	     
 	    return  max ;
 	 }
+//	public static int maxProfit(int[] prices) {
+//		if (prices.length == 0) {
+//			return 0 ;
+//		}
+//		
+//		int max = 0 ;
+//		int sofarMin = prices[0] ;
+//		for (int i = 0 ; i < prices.length ; ++i) {
+//			if (prices[i] > sofarMin) {
+//				max = Math.max(max, prices[i] - sofarMin) ;
+//			} else{
+//				sofarMin = prices[i]; 
+//			}
+//		}	     
+//		return  max ;
+//	}
 }
