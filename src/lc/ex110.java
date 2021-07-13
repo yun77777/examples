@@ -36,28 +36,19 @@ public class ex110 {
 	          this.right = right;
 	      }
 	  }
+	private boolean result = true;
 	public boolean isBalanced(TreeNode root) {
-	    if(root==null){
-	        return true;
-	    }
-	    return height(root)!=-1;
-	    
+	    maxDepth(root);
+	    return result;
 	}
-	public int height(TreeNode node){
-	    if(node==null){
+
+	public int maxDepth(TreeNode root) {
+	    if (root == null)
 	        return 0;
-	    }
-	    int lH=height(node.left);
-	    if(lH==-1){
-	        return -1;
-	    }
-	    int rH=height(node.right);
-	    if(rH==-1){
-	        return -1;
-	    }
-	    if(lH-rH<-1 || lH-rH>1){
-	        return -1;
-	    }
-	    return Math.max(lH,rH)+1;
+	    int l = maxDepth(root.left);
+	    int r = maxDepth(root.right);
+	    if (Math.abs(l - r) > 1)
+	        result = false;
+	    return 1 + Math.max(l, r);
 	}
 }
