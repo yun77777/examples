@@ -8,7 +8,7 @@ import java.util.List;
 public class ex155 {
 	public void main(String[] args) throws IOException {
 		 MinStack obj = new MinStack();
-		 obj.push(val);
+		 obj.push(1);
 		 obj.pop();
 		 int param_3 = obj.top();
 		 int param_4 = obj.getMin();
