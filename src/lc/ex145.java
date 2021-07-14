@@ -5,7 +5,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ex144 {
+public class ex145 {
 	public void main(String[] args) throws IOException {
 			
 	}
@@ -30,9 +30,9 @@ public class ex144 {
     	while(!stack.isEmpty()) {
     		TreeNode node=stack.pop();
     		if(node!=null) {
-    			stack.push(node.left);
-    			stack.push(node.right);
     			list.add(node.val);
+    			stack.push(node.right);
+    			stack.push(node.left);
     		}
     	}
         return list;
