@@ -41,7 +41,7 @@ public class ex225 {
 		}
 
 		public int top() {
-		    if(mainQ.size() == 0){
+		    if(mainQ.size() == 0){ 
 		      System.out.println("Stack underflow");
 		      return -1;
 		  }else{
