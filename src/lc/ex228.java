@@ -6,7 +6,6 @@ import java.util.List;
 public class ex228 {
 	public void main(String[] args) {
 		int [] nums= {0,1,2,4,5,7};
-		System.err.println("ff");
 //		System.err.println(summaryRanges(nums));
 	}
 
