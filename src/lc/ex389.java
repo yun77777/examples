@@ -7,28 +7,18 @@ public class ex389 {
 		System.err.println(findTheDifference("abcd","abcde"));
 	}
     public static char findTheDifference(String s, String t) {
-    	if(s==null||s==null) return ' ';
-    	if(s.equals(t)) return ' ';
     	int[] arr=new int[26];
     	char ch=' ';
-
-    	for (int i = 0; i < s.length(); i++) {
-			arr[s.charAt(i)-'a']++;
-		}
-    	for (int i = 0; i < t.length(); i++) {
-			arr[t.charAt(i)-'a']--;
-		}
-    	for (int i = 0; i < arr.length; i++) {
-			if(arr[i]<0)
-				ch=(char) (i+'a');
-		}
     	
-    	//abb
-    	//acbb->abbc
+    	for(char c : s.toCharArray()) {
+    		arr[c-'a']++;
+    	}
     	
-    	//acc
-    	//abcc
+    	for(char c : t.toCharArray()) {
+    		if(--arr[c-'a']<0)
+    			return c;
+    	}
     		
-    	return ch;
+    	return 0;
     }
 }
