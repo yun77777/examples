@@ -1,8 +1,5 @@
 package lc;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ex387 {
 	static int[] nums;
 
@@ -12,7 +9,6 @@ public class ex387 {
     public static int firstUniqChar(String s) {
     	if(s==null) return -1;
     	int[] arr=new int[26];
-    	List<Integer> list=new ArrayList<Integer>();
     	for (int i = 0; i < s.length(); i++) {
     		arr[s.charAt(i)-'a']++;
 //    		System.err.println("arr:"+arr[s.charAt(i)-'a']);
