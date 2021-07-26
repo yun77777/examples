@@ -8,14 +8,16 @@ public class ex405 {
 	}
 	public static String toHex(int num) {
 //		hexadecimal representation
+		if(num==0) return "0";
 		String hex="0123456789abcdef";
-		String res="";
+//		String res="";
+		StringBuilder res=new StringBuilder();
 		char[] hexArr=hex.toCharArray();
 		while(num!=0) {
-			res+=hexArr[(num&15)];
+			res.append(hexArr[(num&15)]);
 			num>>>=4;
 		}
-		return res;
+		return res.reverse().toString();
     }
 	
 	
