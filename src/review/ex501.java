@@ -22,6 +22,8 @@ public class ex501 {
     	if(pre!=null&&root.val==pre) currCnt++;
     	else currCnt=1;
     	if(currCnt==maxCnt) {
+    		ans.add(root.val);
+    	} else if(currCnt>maxCnt) {
     		maxCnt=currCnt;
     		ans=new ArrayList<>();
     		ans.add(root.val);
