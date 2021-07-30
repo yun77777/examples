@@ -13,23 +13,28 @@ public class ex700 {
 		System.err.println(root.val);
 	}
     public static TreeNode searchBST(TreeNode root, int val) {
-    	//DFS
     	if(root==null)return null;
-    	Stack<TreeNode> stack=new Stack<>();
-    	stack.push(root);
-    	while(!stack.isEmpty()) {
-    		TreeNode node=stack.pop();
-    		if(node.right!=null)stack.push(node.right);
-    		if(node.left!=null)stack.push(node.left);
-    		if(node.val==val) {
-//    			root=node;
-    			return node;
-//    			System.err.println(node.val+" FOUNDED");
-//    			System.err.println(node.left.val+" left");
-//    			System.err.println(node.right.val+" right");
-    		}
-    		
-    	}
-    	return null;
-	}
+    	if(root.val==val) return root;
+    	else return val<root.val? searchBST(root.left,val): searchBST(root.right,val);
+    }
+//    public static TreeNode searchBST(TreeNode root, int val) {
+//    	//DFS
+//    	if(root==null)return null;
+//    	Stack<TreeNode> stack=new Stack<>();
+//    	stack.push(root);
+//    	while(!stack.isEmpty()) {
+//    		TreeNode node=stack.pop();
+//    		if(node.right!=null)stack.push(node.right);
+//    		if(node.left!=null)stack.push(node.left);
+//    		if(node.val==val) {
+////    			root=node;
+//    			return node;
+////    			System.err.println(node.val+" FOUNDED");
+////    			System.err.println(node.left.val+" left");
+////    			System.err.println(node.right.val+" right");
+//    		}
+//    		
+//    	}
+//    	return null;
+//    }
 }
