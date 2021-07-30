@@ -17,8 +17,3 @@ public class ex463_2 {
     	return islands*4-2*neighbors;
     }
 }
-
-//	1
-// 2 2
-//3 3
-//44
