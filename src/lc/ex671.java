@@ -1,18 +1,11 @@
 package lc;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
-public class main {
-
-	public static void main(String[] args) {
-		TreeNode root=new TreeNode(2);
-		root.left=new TreeNode(2);
-		root.right=new TreeNode(5);
-		root.right.left=new TreeNode(5);
-		root.right.right=new TreeNode(7);
-		System.err.println(findSecondMinimumValue(root));
-	}
+public class ex671 {
 
 	public static int findSecondMinimumValue(TreeNode root) {
 		//Divide and Conquer
@@ -53,5 +46,4 @@ public class main {
 //		}
 //		return secondMin==null?-1:secondMin;
 //	}
-
 }
