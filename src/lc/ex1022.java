@@ -1,30 +1,27 @@
 package lc;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class ex1022 {
-    public boolean isCousins(TreeNode root, int x, int y) {
-    	//BFS
-    	if(root==null)return false;
-    	Queue<TreeNode> queue=new LinkedList<TreeNode>();
-    	queue.offer(root);
-    	while(!queue.isEmpty()) {
-    		int size=queue.size();
-    		boolean isAexist=false;
-    		boolean isBexist=false;
-    		for(int i=0;i<size;i++) {
-    			TreeNode cur=queue.poll();
-    			if(cur.val==x)isAexist=true;
-    			if(cur.val==y)isBexist=true;
-    			if(cur.left!=null&cur.right!=null) {
-    				if((cur.left.val==x&&cur.right.val==y)||(cur.left.val==y&&cur.right.val==x)) return false;
-    			}
-    			if(cur.left!=null) queue.offer(cur.left);
-    			if(cur.right!=null) queue.offer(cur.right);
-    		}
-    		if(isAexist&&isBexist) return true;
-    	}
-    	return false;
+	public static void main(String[] args) {
+		TreeNode root=new TreeNode(1);
+		root.left=new TreeNode(0);
+		root.left.left=new TreeNode(0);
+		root.left.right=new TreeNode(1);
+		root.right=new TreeNode(1);
+		root.right.left=new TreeNode(0);
+		root.right.right=new TreeNode(1);
+		System.err.println(sumRootToLeaf(root));
 	}
+    public static int sumRootToLeaf(TreeNode root) {
+    	int sum=0;
+    	return dfs(root,sum);
+	}
+    private static int dfs(TreeNode root,int sum) {
+    	if(root==null) return 0;
+    	if(root.left==null&&root.right==null)
+    	sum=sum*2+root.val;
+    	System.err.println("VAL:"+root.val);
+    	System.err.println("sum:"+sum);
+    	System.err.println("====================");
+    	return root.left==null&&root.right==null?sum:0+dfs(root.left,sum)+dfs(root.right,sum);
+    }
 }
