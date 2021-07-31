@@ -1,12 +1,35 @@
 package lc;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 public class ex872 {
-	Integer min=Integer.MAX_VALUE, pre=null;
-    public int minDiffInBST(TreeNode root) {
-    	if(root.left!=null) minDiffInBST(root.left);
-    	if(pre!=null) min=Math.min(min, root.val-pre);
-    	pre=root.val;
-    	if(root.right!=null)minDiffInBST(root.right);
-    	return min;
+	public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+    	List<Integer> res1=new ArrayList<>();
+    	List<Integer> res2=new ArrayList<>();
+    	res1=searchLeaves(root1);
+    	res2=searchLeaves(root2);
+    	if(res1.size()!=res2.size()) return false;
+    	for (int i = 0; i < res1.size(); i++) {
+			if(res1.get(i)!=res2.get(i)) return false;
+		}
+    	return true;
+
 	}
+    private List<Integer> searchLeaves(TreeNode root){
+    	if(root==null) return null;
+    	List<Integer> res=new ArrayList<>();
+    	Stack<TreeNode> stack=new Stack<>();
+    	stack.push(root);
+    	while(!stack.isEmpty()) {
+    		TreeNode node=stack.pop();
+    		if(node.left!=null) stack.push(node.left);
+    		if(node.right!=null) stack.push(node.right);
+    		if(node.left==null&&node.right==null) {
+    			res.add(node.val);
+    		}
+    	}
+    	return res;
+    }
 }
