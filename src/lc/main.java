@@ -1,57 +1,46 @@
 package lc;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class main {
 
 	public static void main(String[] args) {
 		TreeNode root=new TreeNode(2);
 		root.left=new TreeNode(2);
-		root.right=new TreeNode(5);
-		root.right.left=new TreeNode(5);
-		root.right.right=new TreeNode(7);
-		System.err.println(findSecondMinimumValue(root));
+		root.right=new TreeNode(3);
+		TreeNode root2=new TreeNode(2);
+		root.left=new TreeNode(3);
+		root.right=new TreeNode(2);
+		System.err.println(leafSimilar(root,root2));
 	}
 
-	public static int findSecondMinimumValue(TreeNode root) {
-		//Divide and Conquer
-    	if(root==null) return -1;
-    	if(root.left==null&&root.right==null) return -1;
-    	
-    	int left=root.left.val;
-    	int right=root.right.val;
-    	
-    	if(root.left.val==root.val) {
-    		left=findSecondMinimumValue(root.left);
-    	}
-    	if(root.right.val==root.val) {
-    		right=findSecondMinimumValue(root.right);
-    	}
-    	
-    	if(left!=-1&&right!=-1)
-    		return Math.min(left,right);
-    	else if(left!=-1)
-    		return left;
-    	else
-    		return right;
-	}
-//	public static int findSecondMinimumValue(TreeNode root) {
-//		//BFS
-//		if(root==null) return -1;
-//		Queue<TreeNode> q=new LinkedList<>();
-//		q.offer(root);
-//		Integer secondMin=null;
-//		while(!q.isEmpty()) {
-//			TreeNode curr=q.poll();
-//			if(curr.right!=null)q.offer(curr.right);
-//			if(curr.left!=null)q.offer(curr.left);
-//			if(curr.val!=root.val) {
-//				if(secondMin==null)secondMin=curr.val;
-//				else secondMin=Math.min(secondMin, curr.val);
-//			}
-//		}
-//		return secondMin==null?-1:secondMin;
-//	}
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+    	List<Integer> res1=new ArrayList<>();
+    	List<Integer> res2=new ArrayList<>();
+    	res1=searchLeaves(root1);
+    	res2=searchLeaves(root2);
+    	if(res1.size()!=res2.size()) return false;
+    	for (int i = 0; i < res1.size(); i++) {
+			if(res1.get(i)!=res2.get(i)) return false;
+		}
+    	return true;
 
+	}
+    private List<Integer> searchLeaves(TreeNode root){
+    	if(root==null) return null;
+    	List<Integer> res=new ArrayList<>();
+    	Stack<TreeNode> stack=new Stack<>();
+    	stack.push(root);
+    	while(!stack.isEmpty()) {
+    		TreeNode node=stack.pop();
+    		if(node.left!=null) stack.push(node.left);
+    		if(node.right!=null) stack.push(node.right);
+    		if(node.left==null&&node.right==null) {
+    			res.add(node.val);
+    		}
+    	}
+    	return res;
+    }
 }
