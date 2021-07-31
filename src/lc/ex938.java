@@ -1,8 +1,12 @@
 package lc;
 
 public class ex938 {
-    public int rangeSumBST(TreeNode root, int low, int high) {
-    	if(root==null) return 0;
-    	return (root.val>=low&&root.val<=high?root.val:0)+rangeSumBST(root.left,low,high)+rangeSumBST(root.right,low,high);
+	TreeNode pre;
+    public boolean isUnivalTree(TreeNode root) {
+    	if(root==null) return true;
+    	if(pre==null) pre=root;
+    	//DFS
+    	// if(pre.val!=root.val) return false;
+    	return pre.val==root.val&&isUnivalTree(root.left)&&isUnivalTree(root.right);
 	}
 }
