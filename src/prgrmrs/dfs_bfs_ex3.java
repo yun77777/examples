@@ -1,6 +1,5 @@
 package prgrmrs;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,44 +10,33 @@ public class dfs_bfs_ex3 {
 		String begin = "hit", target = "cog";
 		System.err.println(solution(begin, target, words));
 	}
+
 	static int answer = 0;
 	public static int solution(String begin, String target, String[] words) {
 //		int answer = 0;
-		ArrayList<String> list=new ArrayList<String>(Arrays.asList(words));
-		
-		
 		boolean[] visited=new boolean[words.length];
-		dfs(begin, target, list, visited);
+		dfs(begin, target, words, visited,0);
 		return answer;
 	}
-	public static boolean[] dfs(String begin, String target, ArrayList<String> list, boolean[] visited) {
-		ArrayList<String> tmp=new ArrayList<String>();
-//		if(begin.equals(target)) {
-//			return visited;
-//		}
-		if(!list.contains(target)) return visited;
+	public static boolean[] dfs(String begin, String target, String[] words, boolean[] visited, int cnt) {//cnt for counting depth
+		if(begin.equals(target)) {
+			answer=cnt;
+			return visited;
+		}
 		
-		for (int i = 0; i < list.size(); i++) {
+		for (int i = 0; i < words.length; i++) {
 			if(visited[i]) continue;
-			
-			int cnt=0;
+			int count=0;
 			for (int j = 0; j < begin.length(); j++) {
-				if(begin.charAt(j)!=list.get(i).charAt(j)) cnt++;
+				if(words[i].charAt(j)!=begin.charAt(j)) count++;
 			}
 			
-			if(cnt==1) {
-				answer++;
-				System.err.println(begin+"'s cnt:"+cnt);
-//				System.err.println(list);
-				
+			if(count==1) {
 				visited[i]=true;
-				dfs(list.get(i), target, list, visited);
-				list.remove(i);
+				dfs(words[i], target, words, visited,cnt+1);
 				visited[i]=false;
 			}
 		}
-		
-		
 		return visited;
 		
 	}
