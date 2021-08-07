@@ -6,7 +6,7 @@ public class ex3_lv2 {
 		System.err.println(solution("ababcdcdababcdcd"));
 	}
 	
-	//1개 이상 문자 압축 최소 길이-재귀함수
+	//1개 이상 문자 압축 최소 길이
 	public static int solution(String s) {
         int min=s.length();
 		for(int i=1; i<=s.length()/2; i++) {
