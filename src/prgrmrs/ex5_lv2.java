@@ -9,12 +9,24 @@ public class ex5_lv2 {
 	
 	//1 2 4 11 12 14 21 22 24 41 42 44 111
 	public static String solution(int n) {
-        String answer = "";
-        String[] num= {"4","1","2"};
-        while(n>0) {
-        	answer=num[n%3]+answer;
-        	n=(n-1)/3;
-        }
-        return answer;
-    }
+		String answer = "";
+		String[] num= {"4","1","2"};
+		while(n>0) {
+			answer=num[n%3]+answer;
+			n=(n-1)/3;
+		}
+		return answer;
+	}
+	
+//효율성 문제
+//	public static String solution(int n) {
+//        String answer = "";
+//        String num="412";
+//        while(n>0) {
+//        	answer=num.charAt(n%3)+answer;
+//        	n= --n/3;
+//        }
+//        
+//        return answer;
+//    }
 }
