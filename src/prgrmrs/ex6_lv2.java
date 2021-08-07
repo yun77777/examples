@@ -25,14 +25,12 @@ public class ex6_lv2 {
 			
 			if(!type.equals("Leave")) nickName=st.nextToken();
 			
-			
 			switch(type) {
 				case "Enter":
 					map.put(id,nickName);
 					list.add(id+"님이 들어왔습니다.");
 					break;
 				case "Leave":
-					map.put(id,nickName);
 					list.add(id+"님이 나갔습니다.");
 					break;
 				case "Change":
