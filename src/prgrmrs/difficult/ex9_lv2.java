@@ -1,4 +1,4 @@
-package prgrmrs;
+package prgrmrs.difficult;
 
 import java.util.HashMap;
 
