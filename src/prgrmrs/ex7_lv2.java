@@ -17,14 +17,12 @@ public class ex7_lv2 {
 	public static int[] solution(int[] progresses, int[] speeds) {
 		Queue<Integer> queue=new LinkedList<Integer>();
 		List<Integer> list=new ArrayList<Integer>();
-		boolean[] bool=new boolean[progresses.length];
 		int cnt=0;
 		int order=0;
 		for(int p: progresses) queue.offer(p);
 		while(!queue.isEmpty()||order<progresses.length) {
 			cnt=0;
 			for (int i = 0; i < progresses.length; i++) {
-				if(bool[i]) continue;
 				progresses[i]+=speeds[i];
 				if(progresses[i]>=100) {
 					progresses[i]=100;
@@ -47,9 +45,9 @@ public class ex7_lv2 {
 		int[] answer=new int[list.size()];
 		int idx=0;
 		for(int n:list) answer[idx++]=n;
-		for (int ii = 0; ii < answer.length; ii++) {
-			System.err.println(answer[ii]);
-		}
+//		for (int ii = 0; ii < answer.length; ii++) {
+//			System.err.println(answer[ii]);
+//		}
 		return answer;
 	}
 }
