@@ -12,7 +12,6 @@ public class ex16_lv2 {
 	}
 
 	public static int solution(int bridge_length, int weight, int[] truck_weights) {
-		int answer = 0;
 		Queue<int[]> queue=new LinkedList<>();
 		int idx=0, time=0;
 		while(idx<truck_weights.length) {
