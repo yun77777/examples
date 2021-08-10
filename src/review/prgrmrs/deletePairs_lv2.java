@@ -2,7 +2,7 @@ package review.prgrmrs;
 
 import java.util.Stack;
 
-public class deletePairs_lv1 {
+public class deletePairs_lv2 {
 
 	public static void main(String[] args) {
 		System.err.println(solution("baabaa"));
