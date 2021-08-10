@@ -1,7 +1,5 @@
 package prgrmrs;
 
-import java.util.Arrays;
-
 public class ex20_lv2 {
 
 	public static void main(String[] args) {
