@@ -11,19 +11,17 @@ public class biggestNum_lv2 {
 	}
 
 	public static String solution(int[] numbers) {
-		
+		//문자열 두개씩 더해서 내림차순 정렬(303 < 330)
+		StringBuilder sb=new StringBuilder();
 		String[] str=new String[numbers.length];
-		for(int i=0; i<str.length; i++) str[i]=String.valueOf(numbers[i]);
-		
+		for(int i=0; i<numbers.length; i++) str[i]=String.valueOf(numbers[i]);
 		Arrays.sort(str,new Comparator<String>() {
 			@Override
 			public int compare(String a, String b) {
 				return (b+a).compareTo(a+b);
 			}
 		});
-		for (int i = 0; i < str.length; i++) {
-			System.err.println(str[i]);
-		}
-		return str.toString();
+		for(String s:str) sb.append(s);
+		return sb.toString();
 	}
 }
