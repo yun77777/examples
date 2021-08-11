@@ -21,7 +21,8 @@ public class biggestNum_lv2 {
 				return (b+a).compareTo(a+b);
 			}
 		});
-		for(String s:str) sb.append(s);
+		if(str[0].equals("0")) return "0";
+        for(String s:str) sb.append(s);
 		return sb.toString();
 	}
 }
