@@ -2,7 +2,7 @@ package review.prgrmrs;
 
 import java.util.Arrays;
 
-public class immigration_lv2 {
+public class immigration_lv3 {
 
 	public static void main(String[] args) {
 		int[] times= {7,10};
