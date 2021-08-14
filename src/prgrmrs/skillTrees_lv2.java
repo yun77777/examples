@@ -18,7 +18,6 @@ public class skillTrees_lv2 {
 					break;
 				}
 				prevIdx=idx;
-				
 			}
 		}
 		return cnt;
