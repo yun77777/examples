@@ -8,6 +8,26 @@ public class joyStick_lv2 {
 
 	public static int solution(String name) {
 		int answer = 0;
+		int len=name.length();
+		int min=len-1;
+		for (int i = 0; i <len; i++) {
+			char c=name.charAt(i);
+			int mov=(Math.abs('A'-c)<Math.abs('Z'-c)) ? (c-'A') : ('Z'-c+1);
+//			int mov=(c-'A' < 'Z'-c+1) ? (c-'A') : ('Z'-c+1);
+			System.err.println(c+"-'A': "+(c-'A'));
+			System.err.println("('Z'-"+c+"+1): "+('Z'-c+1));
+			answer+=mov;
+			
+			int nextIdx=i+1;
+			while(nextIdx<len && name.charAt(nextIdx)=='A')
+				nextIdx++;
+			
+			//조이스틱 원위치 이동(i*2) + 끝에서 nextIdx 위치만큼 이동(거꾸로 가는게 최단일 경우)
+			
+			min=Math.min(min,(i*2)+len-nextIdx);
+		}
+		answer+=min;
+		
 		return answer;
 	}
 }
