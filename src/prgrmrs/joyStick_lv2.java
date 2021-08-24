@@ -10,7 +10,6 @@ public class joyStick_lv2 {
 		int answer = 0, mov=0;
 		int len=name.length();
 		int min=len-1; //최소 이동 횟수
-		int idx=0;
 		for(int i=0; i<len; i++) {
 			char ch=name.charAt(i);
 			answer+=Math.abs('A'-ch) < Math.abs('Z'-ch+1) ? Math.abs('A'-ch) : Math.abs('Z'-ch+1); // 앞 뒤(+1: A에서 출발) 중 최단 이동 거리
